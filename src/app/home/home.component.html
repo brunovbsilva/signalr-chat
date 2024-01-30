@@ -1,0 +1,30 @@
+<div class="container">
+  <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+    <div class="form-input">
+      <span class="name" for="name">Choose your name</span>
+      <input type="text" formControlName="name" class="name-input"/>
+      <div class="input-errors">
+        @if (userForm.get('name')!.dirty) {
+          @if (userForm.get('name')!.hasError('required')) {
+            <li>Name is required</li>
+          }
+          @if (userForm.get('name')!.hasError('minlength')) {
+            <li>Name must have at least 3 characters</li>
+          }
+          @if (userForm.get('name')!.hasError('maxlength')) {
+            <li>Name must have less than 15 characters</li>
+          }
+        }
+      </div>
+    </div>
+
+    <div class="apiErrors">
+      <ul>
+        @for (message of apiErrorMessages; track $index) {
+          <li>{{ message }}</li>
+        }
+      </ul>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+</div>

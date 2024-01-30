@@ -1,0 +1,78 @@
+.chat-container {
+  display: flex;
+  gap: 2rem;
+  .left {
+    .online-users {
+      .user {
+        color: #575757;
+        cursor: pointer;
+        &:hover {
+          color: #252525;
+        }
+      }
+    }
+  }
+  .right {
+    .tabs {
+      display: flex;
+      .tabindex {
+        padding: 4px;
+        background: #575757;
+        &--active {
+          background: #252525;
+          color: white;
+        }
+      }
+    }
+    .chat-messages {
+      display: flex;
+      flex-direction: column;
+      height: 600px;
+      width: 400px;
+      background-color: #252525;
+      overflow: hidden;
+      overflow-y: auto;
+    }
+
+    .chat-controls {
+      display: flex;
+      gap: 0.25rem;
+      margin-top: 0.25rem;
+      .chat-input {
+        font-size: 1rem;
+        line-height: 1.2rem;
+        padding: 0.5rem;
+        flex: 1 1 auto;
+        border-radius: 0.25rem;
+      }
+      .chat-send {
+        font-size: 1rem;
+        line-height: 1.2rem;
+        padding: 0.5rem;
+        background: #0b5002;
+        color: #fff;
+        border: none;
+        border-radius: 0.25rem;
+        &:hover {
+          background: #159404;
+        }
+        &:active {
+          background: #0b5002;
+        }
+      }
+    }
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #575757;
+  border-radius: 10px;
+}

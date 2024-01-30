@@ -1,0 +1,38 @@
+<button (click)="goToHome()">go back</button>
+
+<div class="chat-container">
+  <div class="left">
+    <h2>Users on the chat</h2>
+    <div class="online-users">
+      @for (user of chatUsers(); track $index) {
+        @if(user != myName) {
+          <p class="user" (click)="openPrivateChat(user)">{{user}}</p>
+        }
+      }
+    </div>
+  </div>
+  <div class="right">
+      <div class="tabs">
+        @for (name of chatNames(); track $index) {
+          <div class="tabindex" [class.tabindex--active]="name == currentChat()" (click)="setChat(name)">
+            <span class="tabname">{{name}}</span>
+            @if (name != 'General') {
+              <button class="tablinks" (click)="closePrivateChat(name); $event.stopPropagation()">x</button>
+            }
+          </div>
+          @if (!$last) {
+            <hr>
+          }
+        }
+      </div>
+    <div class="chat-messages">
+      @for (message of chatMessages(); track $index) {
+        <app-message [message]="message"></app-message>
+      }
+    </div>
+    <div class="chat-controls">
+      <input #message type="text" class="chat-input" placeholder="Type your message here...">
+      <button class="chat-send" (click)="sendMessage(message.value)">Send</button>
+    </div>
+  </div>
+</div>

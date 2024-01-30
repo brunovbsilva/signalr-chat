@@ -1,0 +1,14 @@
+.message {
+  font-size: 0.8em;
+  line-height: 1rem;
+  padding: 0.1rem;
+  .message__timespan {
+    color: #999;
+  }
+  .message__author {
+    color: #33ff00;
+  }
+  .message__content {
+    color: #fff;
+  }
+}
